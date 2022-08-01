@@ -1,5 +1,5 @@
 # tmData
-An R package that return squad and player data from popular football (soccer) site transfermarkt.com.
+An R package that returns squad and player data from popular football (soccer) site transfermarkt.com.
 
 To install the package, use the below code in R:
 
