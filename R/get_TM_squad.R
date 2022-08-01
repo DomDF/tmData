@@ -12,7 +12,6 @@
 #' @export
 #' @examples
 #' Juventus squad <- get_TM_squad(squad_url = 'https://www.transfermarkt.co.uk/juventus-turin/startseite/verein/506', user_agent = 'John Smith personal project')
-#' Blackburn_Rovers_squad <- get_TM_squad(squad_url = 'https://www.transfermarkt.co.uk/blackburn-rovers/startseite/verein/164', user_agent = 'John Smith personal project')
 
 get_TM_squad <- function(squad_url, user_agent, raw = FALSE, year = 2022){
 
@@ -51,8 +50,13 @@ get_TM_squad <- function(squad_url, user_agent, raw = FALSE, year = 2022){
     dplyr::mutate(X. = X. |> as.numeric()) |>
     dplyr::filter(!is.na(Nat.))
 
-  cols <- c('number', NA, NA, 'player', 'position', 'DoB', NA, 'height_m', 'foot', 'joined', NA, 'contract_exp', 'market_value')
-  colnames(squad) <- cols; squad <- squad[!is.na(names(squad))]
+  if('Current.club' %in% colnames(squad)){
+    cols <- c('number', NA, NA, 'player', 'position', 'DoB', NA, NA, 'height_m', 'foot', 'joined', NA, 'contract_exp', 'market_value')
+    colnames(squad) <- cols; squad <- squad[!is.na(names(squad))]
+  } else {
+    cols <- c('number', NA, NA, 'player', 'position', 'DoB', NA, 'height_m', 'foot', 'joined', NA, 'contract_exp', 'market_value')
+    colnames(squad) <- cols; squad <- squad[!is.na(names(squad))]
+  }
 
   squad <- squad |>
     dplyr::mutate(currency = dplyr::case_when(
@@ -83,9 +87,10 @@ get_TM_squad <- function(squad_url, user_agent, raw = FALSE, year = 2022){
     dplyr::mutate(surname = stringr::str_trim(string = stringr::word(string =  player, sep = '[ ]', start = -1),
                                               side = 'both'),
                   name = stringr::word(string = player, sep = ' ', end = 1)) |>
-    dplyr::mutate(Age = lubridate::interval(start = DoB, end = Sys.Date()) / lubridate::years(1)) |>
+    dplyr::mutate(age = lubridate::interval(start = DoB, end = Sys.Date()) / lubridate::years(1)) |>
     dplyr::mutate(squad_value = sum(market_value)) |>
-    dplyr::mutate(player = forcats::fct_reorder(.f = as.factor(player), .x = market_value),
+    dplyr::mutate(year = year,
+                  player = forcats::fct_reorder(.f = as.factor(player), .x = market_value),
                   position = forcats::as_factor(position),
                   foot = forcats::as_factor(foot),
                   team = team_name,

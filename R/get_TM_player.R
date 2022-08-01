@@ -11,13 +11,10 @@
 #' @export
 #' @examples
 #' dusan_vlahovic <- get_TM_player(player_url = 'https://www.transfermarkt.co.uk/du-scaron-an-vlahović/profil/spieler/357498', user_agent = 'John Smith personal project')
-#' Blackburn_Rovers_squad <- get_TM_squad(url = 'https://www.transfermarkt.co.uk/blackburn-rovers/startseite/verein/164', user_agent = 'John Smith personal project')
 
 get_TM_player <- function(player_url, user_agent, raw = FALSE){
 
   require(tidyverse); require(polite)
-
-  player_url <- (Juve_squad |> filter(player == 'Dušan Vlahović'))$player_url
 
   url <- player_url |> gsub(pattern = 'profil', replacement = 'leistungsdatendetails') |>
     paste0('/saison//verein/0/liga/0/wettbewerb//pos/0/trainer_id/0/plus/1')

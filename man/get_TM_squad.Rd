@@ -21,7 +21,6 @@ Returns a preprocessed tibble of any squad.
 }
 \examples{
 Juventus squad <- get_TM_squad(squad_url = 'https://www.transfermarkt.co.uk/juventus-turin/startseite/verein/506', user_agent = 'John Smith personal project')
-Blackburn_Rovers_squad <- get_TM_squad(squad_url = 'https://www.transfermarkt.co.uk/blackburn-rovers/startseite/verein/164', user_agent = 'John Smith personal project')
 }
 \keyword{Football,}
 \keyword{Soccer}

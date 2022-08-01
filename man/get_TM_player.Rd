@@ -19,7 +19,6 @@ Returns a preprocessed tibble of a player.
 }
 \examples{
 dusan_vlahovic <- get_TM_player(player_url = 'https://www.transfermarkt.co.uk/du-scaron-an-vlahović/profil/spieler/357498', user_agent = 'John Smith personal project')
-Blackburn_Rovers_squad <- get_TM_squad(url = 'https://www.transfermarkt.co.uk/blackburn-rovers/startseite/verein/164', user_agent = 'John Smith personal project')
 }
 \keyword{Football,}
 \keyword{Soccer}
