@@ -11,7 +11,7 @@ This will allow you to use the functions:
 
 These functions use the polite package (https://github.com/dmi3kno/polite) to scrape data from squad and player pages. Some examples are provided below:
 
-`Juventus squad <- get_TM_squad(squad_url = 'https://www.transfermarkt.co.uk/juventus-turin/startseite/verein/506', user_agent = 'John Smith personal project')`
+`juve_squad <- get_TM_squad(squad_url = 'https://www.transfermarkt.co.uk/juventus-turin/startseite/verein/506', user_agent = 'John Smith personal project')`
 
 `dusan_vlahovic <- get_TM_player(player_url = 'https://www.transfermarkt.co.uk/du-scaron-an-vlahović/profil/spieler/357498', user_agent = 'John Smith personal project')`
 
