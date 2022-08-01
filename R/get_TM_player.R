@@ -20,14 +20,14 @@ get_TM_player <- function(player_url, user_agent, raw = FALSE){
     paste0('/saison//verein/0/liga/0/wettbewerb//pos/0/trainer_id/0/plus/1')
 
   session <- polite::bow(url = url, user_agent = user_agent)
+  ws <- session |>
+    polite::scrape()
 
-  raw_player <- session |>
-    polite::scrape() |>
+  raw_player <- ws |>
     rvest::html_nodes('#yw1 > table') |>
     rvest::html_table(fill = TRUE)
 
-  page_urls <- session |>
-    polite::scrape() |>
+  page_urls <- ws |>
     rvest::html_nodes('#yw1 > table') |>
     rvest::html_nodes('td') |>
     rvest::html_nodes(css = 'a') |>

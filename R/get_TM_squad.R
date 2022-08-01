@@ -23,21 +23,20 @@ get_TM_squad <- function(squad_url, user_agent, raw = FALSE, year = 2022){
     paste0('/plus/1')
 
   session <- polite::bow(url = url, user_agent = user_agent)
+  ws <- session |>
+    polite::scrape()
 
-  raw_squad <- session |>
-    polite::scrape() |>
+  raw_squad <- ws |>
     rvest::html_nodes('#yw1 > table') |>
     rvest::html_table(fill = TRUE)
 
-  team_name <- session |>
-    polite::scrape() |>
+  team_name <- ws |>
     rvest::html_nodes('#verein_head > div > div.dataHeader.dataExtended > div.dataMain > div > div.dataName > h1') |>
     rvest::html_text() |>
     stringr::str_replace_all(pattern = '\n', replacement = '') |>
     stringr::str_trim()
 
-  page_urls <- session |>
-    polite::scrape() |>
+  page_urls <- ws |>
     rvest::html_nodes('#yw1 > table') |>
     rvest::html_nodes('td') |>
     rvest::html_nodes(css = 'a') |>
