@@ -7,13 +7,13 @@
 get_TM_squad(squad_url, user_agent, raw = FALSE, year = 2022)
 }
 \arguments{
+\item{squad_url}{A valid ()detailed) transfermarkt url. Navigate to a club page, click on the 'detailed' tab, and then paste the url - REQUIRED.}
+
 \item{user_agent}{A character introducing yourself to the website - REQUIRED.}
 
 \item{raw}{Logical: if TRUE, returns the unprocessed table. if FALSE, returns a processed tibble - defaults to FALSE}
 
 \item{year}{Numeric: specify the year for which you would like the data}
-
-\item{url}{A valid ()detailed) transfermarkt url. Navigate to a club page, click on the 'detailed' tab, and then paste the url - REQUIRED.}
 }
 \description{
 A webscraping function for the website 'https://www.transfermarkt.com/'.

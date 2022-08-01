@@ -4,7 +4,7 @@
 #' Returns a preprocessed tibble of a player.
 #'
 #'
-#' @param playerurl A valid transfermarkt url. Navigate to a player's page, and then copy the url - REQUIRED.
+#' @param player_url A valid transfermarkt url. Navigate to a player's page, and then copy the url - REQUIRED.
 #' @param user_agent A character introducing yourself to the website - REQUIRED.
 #' @param raw  Logical: if TRUE, returns the unprocessed table. if FALSE, returns a processed tibble - defaults to FALSE
 #' @keywords Webscraping, Football, Soccer

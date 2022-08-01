@@ -4,7 +4,7 @@
 #' Returns a preprocessed tibble of any squad.
 #'
 #'
-#' @param url A valid ()detailed) transfermarkt url. Navigate to a club page, click on the 'detailed' tab, and then paste the url - REQUIRED.
+#' @param squad_url A valid ()detailed) transfermarkt url. Navigate to a club page, click on the 'detailed' tab, and then paste the url - REQUIRED.
 #' @param user_agent A character introducing yourself to the website - REQUIRED.
 #' @param raw  Logical: if TRUE, returns the unprocessed table. if FALSE, returns a processed tibble - defaults to FALSE
 #' @param year Numeric: specify the year for which you would like the data

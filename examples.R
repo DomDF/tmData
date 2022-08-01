@@ -1,9 +1,11 @@
 library(tmData)
 
+?tmData::get_TM_player()
+
 juve_df <- get_TM_squad(squad_url = 'https://www.transfermarkt.co.uk/juventus-turin/startseite/verein/506',
                         user_agent = 'Dom Di Francesco, personal project')
 
-player_value_plot <- function(years){
+squad_value_plot <- function(years){
 
   plot_df <- tibble()
   for (year in years){
@@ -28,7 +30,7 @@ player_value_plot <- function(years){
 
 }
 
-player_value_plot(years = seq(from = 2014, to = 2022, by = 1))
+squad_value_plot(years = seq(from = 2014, to = 2022, by = 1))
 
 dusan_vlahovic_url <- (juve_df |> filter(player == 'Dušan Vlahović'))$player_url
 

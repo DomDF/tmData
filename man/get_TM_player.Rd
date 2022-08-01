@@ -7,11 +7,11 @@
 get_TM_player(player_url, user_agent, raw = FALSE)
 }
 \arguments{
+\item{player_url}{A valid transfermarkt url. Navigate to a player's page, and then copy the url - REQUIRED.}
+
 \item{user_agent}{A character introducing yourself to the website - REQUIRED.}
 
 \item{raw}{Logical: if TRUE, returns the unprocessed table. if FALSE, returns a processed tibble - defaults to FALSE}
-
-\item{playerurl}{A valid transfermarkt url. Navigate to a player's page, and then copy the url - REQUIRED.}
 }
 \description{
 A webscraping function for the website 'https://www.transfermarkt.com/'.
