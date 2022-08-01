@@ -1,7 +1,5 @@
 library(tmData)
 
-?tmData::get_TM_player()
-
 juve_df <- get_TM_squad(squad_url = 'https://www.transfermarkt.co.uk/juventus-turin/startseite/verein/506',
                         user_agent = 'Dom Di Francesco, personal project')
 
@@ -29,11 +27,9 @@ squad_value_plot <- function(years){
     theme(plot.background = element_rect(colour = NA))
 
 }
-
 squad_value_plot(years = seq(from = 2014, to = 2022, by = 1))
 
 dusan_vlahovic_url <- (juve_df |> filter(player == 'Dušan Vlahović'))$player_url
-
 dusan_vlahovic_df <- get_TM_player(player_url = dusan_vlahovic_url,
                                    user_agent = 'Dom Di Francesco, personal project')
 
@@ -49,5 +45,4 @@ player_goals_plot <- function(player_df){
           axis.text.x = element_text(angle = 90),
           legend.title = element_blank())
 }
-
 player_goals_plot(player_df = dusan_vlahovic_df)
